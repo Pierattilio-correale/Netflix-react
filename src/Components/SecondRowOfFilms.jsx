@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { Container, Row, Col, Card, Spinner, Alert } from "react-bootstrap";
-const URLStarWars =
-  "https://www.omdbapi.com/?apikey=4b12ae0b&s=Lord%20Of%20rings ";
+const URLStarWars = "https://www.omdbapi.com/?apikey=4b12ae0b&s=dragon%20ball ";
 class SecondRowOfFilms extends Component {
   state = {
     film: [],
@@ -62,10 +61,10 @@ class SecondRowOfFilms extends Component {
               >
                 <Card className="border-0">
                   <Card.Img
-                    style={{ height: 130 }}
+                    style={{ height: 160 }}
                     variant="top"
                     src={films.Poster}
-                    alt="Filmstarwars"
+                    alt={films.Title}
                     className="card-img22"
                   />
                 </Card>

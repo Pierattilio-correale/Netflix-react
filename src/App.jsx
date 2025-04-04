@@ -8,6 +8,8 @@ import FirstRowOfFilms from "./Components/FirstRowOfFilms";
 import SecondRowOfFilms from "./Components/SecondRowOfFilms";
 import ThirdRowOfFilms from "./Components/ThirdRowOfFilms";
 import MyFooter from "./Components/MyFooter";
+import PaginaProfiloExtra from "./Components/PaginProfiloExtra";
+import NetflixSettings from "./Components/NetflixSettings";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <SecondRowOfFilms />
         <ThirdRowOfFilms />
         <MyFooter />
+        {/* <PaginaProfiloExtra />
+        <NetflixSettings /> */}
       </div>
     </>
   );
