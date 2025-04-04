@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Container, Row, Col, Card, Spinner, Alert } from "react-bootstrap";
-const URLStarWars = "https://www.omdbapi.com/?apikey=4b12ae0b&s=pokemon";
+const URLPokemon = "https://www.omdbapi.com/?apikey=4b12ae0b&s=pokemon";
 class ThirdRowOfFilms extends Component {
   state = {
     film: [],
@@ -8,7 +8,7 @@ class ThirdRowOfFilms extends Component {
     isError: false,
   };
   getMyFilm = () => {
-    fetch(URLStarWars)
+    fetch(URLPokemon)
       .then((response) => {
         if (response.ok) {
           return response.json();

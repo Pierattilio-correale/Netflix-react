@@ -1,14 +1,6 @@
 import { Component } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Spinner,
-  Alert,
-  Carousel,
-} from "react-bootstrap";
-const URLStarWars =
+import { Container, Row, Col, Card, Spinner, Alert } from "react-bootstrap";
+const URLSwordArt =
   "https://www.omdbapi.com/?apikey=4b12ae0b&s=sword%20art%20online ";
 class FirstRowOfFilms extends Component {
   state = {
@@ -17,7 +9,7 @@ class FirstRowOfFilms extends Component {
     isError: false,
   };
   getMyFilm = () => {
-    fetch(URLStarWars)
+    fetch(URLSwordArt)
       .then((response) => {
         if (response.ok) {
           return response.json();
