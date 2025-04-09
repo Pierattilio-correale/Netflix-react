@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
 const URLDB = "https://www.omdbapi.com/?apikey=4b12ae0b&s=dragon%20ball ";
 const SecondRowOfFilms = function () {
   const params = useParams();
@@ -47,20 +48,7 @@ const SecondRowOfFilms = function () {
   }, []);
   return (
     <>
-      <Container className="my-3">
-        <Row>
-          <Col>
-            <h2 className="text-center text-white">Search here</h2>
-            <div className="d-flex justify-content-center">
-              <Form.Control
-                type="text"
-                className="w-50"
-                placeholder={"Watch It Again"}
-              />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <SearchBar />
       <h4 className="text-white ms-4 my-4">Whatch it Again</h4>
       <Container>
         <Row className="g-3">

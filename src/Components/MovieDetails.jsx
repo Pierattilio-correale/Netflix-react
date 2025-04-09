@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card, Col, Container, Row, Spinner, Form } from "react-bootstrap";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import CommentArea from "./CommentArea";
+import SearchBar from "./SearchBar";
 
 const MovieDetails = function () {
   const navigate = useNavigate();
@@ -44,20 +45,7 @@ const MovieDetails = function () {
   return (
     <>
       <div>
-        <Container className="my-3">
-          <Row>
-            <Col>
-              <h2 className="text-center text-white">Search here</h2>
-              <div className="d-flex justify-content-center">
-                <Form.Control
-                  type="text"
-                  className="w-50"
-                  placeholder={params.movieID}
-                />
-              </div>
-            </Col>
-          </Row>
-        </Container>
+        <SearchBar />
         <Container>
           <Row className="d-flex justify-content-center">
             {isLoading && (

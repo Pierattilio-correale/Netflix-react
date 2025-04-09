@@ -13,6 +13,7 @@ import NetflixSettings from "./Components/NetflixSettings";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MovieDetails from "./Components/MovieDetails";
 import NotFound from "./Components/NotFound";
+import SearchBar from "./Components/SearchBar";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <BrowserRouter>
         <div className="Fakebody min-vh-100 d-flex flex-column">
           <MyNavbar />
+
           <div className=" flex-grow-1">
             <Routes>
               <Route
@@ -37,6 +39,7 @@ function App() {
                         className="d-inline-block align-top"
                         alt="Netflix Logo"
                       />
+                      <SearchBar />
                     </div>
                   </>
                 }

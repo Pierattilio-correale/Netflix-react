@@ -1,10 +1,12 @@
 import { Row, Col, Container, NavDropdown } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const PreHome = function () {
   const params = useParams();
   console.log(params);
+
   return (
     <>
       <Container fluid className="px-4">
@@ -28,20 +30,7 @@ const PreHome = function () {
           </div>
         </div>
       </Container>
-      <Container className="my-3">
-        <Row>
-          <Col>
-            <h2 className="text-center text-white">Search here</h2>
-            <div className="d-flex justify-content-center">
-              <Form.Control
-                type="text"
-                className="w-50"
-                placeholder={" TV Shows"}
-              />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <SearchBar />
     </>
   );
 };

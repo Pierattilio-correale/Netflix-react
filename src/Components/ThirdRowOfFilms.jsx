@@ -9,6 +9,7 @@ import {
   Form,
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
 const URLPokemon = "https://www.omdbapi.com/?apikey=4b12ae0b&s=pokemon";
 const ThirdRowOfFilms = function () {
   const navigate = useNavigate();
@@ -47,20 +48,7 @@ const ThirdRowOfFilms = function () {
 
   return (
     <>
-      <Container className="my-3">
-        <Row>
-          <Col>
-            <h2 className="text-center text-white">Search here</h2>
-            <div className="d-flex justify-content-center">
-              <Form.Control
-                type="text"
-                className="w-50"
-                placeholder={"New Releases"}
-              />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <SearchBar />
       <h4 className="text-white ms-4 my-4">New Releases</h4>
       <Container>
         <Row className="g-3">

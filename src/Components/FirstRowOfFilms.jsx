@@ -9,6 +9,7 @@ import {
   Form,
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
 const URLSwordArt =
   "https://www.omdbapi.com/?apikey=4b12ae0b&s=sword%20art%20online ";
 const FirstRowOfFilms = function () {
@@ -47,20 +48,8 @@ const FirstRowOfFilms = function () {
 
   return (
     <>
-      <Container className="my-3">
-        <Row>
-          <Col>
-            <h2 className="text-center text-white">Search here</h2>
-            <div className="d-flex justify-content-center">
-              <Form.Control
-                type="text"
-                className="w-50"
-                placeholder={"Trending Now"}
-              />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <SearchBar />
+
       <h4 className="text-white ms-4 my-4">Trending Now</h4>
       <Container>
         <Row className="g-3">
