@@ -1,13 +1,19 @@
-import { Component } from "react";
+import { Component, useState, useEffect } from "react";
 import { Container, Row, Col, Card, Spinner, Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 const URLPokemon = "https://www.omdbapi.com/?apikey=4b12ae0b&s=pokemon";
-class ThirdRowOfFilms extends Component {
-  state = {
-    film: [],
-    isLoading: true,
-    isError: false,
-  };
-  getMyFilm = () => {
+const ThirdRowOfFilms = function () {
+  const navigate = useNavigate();
+  // state = {
+  //   film: [],
+  //   isLoading: true,
+  //   isError: false,
+  // };
+  const [film, setFilm] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
+  const getMyFilm = () => {
     fetch(URLPokemon)
       .then((response) => {
         if (response.ok) {
@@ -18,61 +24,71 @@ class ThirdRowOfFilms extends Component {
       })
       .then((data) => {
         console.log(data);
-        this.setState({
-          film: data.Search,
-          isLoading: false,
-          isError: false,
-        });
+        // this.setState({
+        //   film: data.Search,
+        //   isLoading: false,
+        //   isError: false,
+        // });
+        setFilm(data.Search);
+        setIsLoading(false);
+        setIsError(false);
       })
       .catch((err) => {
         console.log("Errore nella fetch", err);
-        this.setState({
-          isLoading: false,
-          isError: true,
-        });
+        // this.setState({
+        //   isLoading: false,
+        //   isError: true,
+        // });
+        setIsLoading(false);
+        setIsError(true);
       });
   };
-  componentDidMount() {
-    this.getMyFilm();
-  }
-  render() {
-    return (
-      <>
-        <h4 className="text-white ms-4 my-4">New Releases</h4>
-        <Container>
-          <Row className="g-3">
-            {this.state.isLoading && (
-              <div className="text-center my-3">
-                <Spinner variant="danger" animation="border" />
-              </div>
-            )}
-            {this.state.isError && (
-              <div className="d-flex justify-content-center">
-                <Alert variant="danger" className="my-3 w-50">
-                  Mi dispiace ma i tuoi film non sono presenti!
-                </Alert>
-              </div>
-            )}
-            {this.state.film.map((films) => (
-              <Col
-                key={films.imdbID}
-                className="col-lg-3 col-md-4 col-sm-6 col-xl-2 col-12"
-              >
-                <Card className="border-0">
-                  <Card.Img
-                    style={{ height: 160 }}
-                    variant="top"
-                    src={films.Poster}
-                    alt={films.Title}
-                    className="card-img22"
-                  />
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </>
-    );
-  }
-}
+  // componentDidMount() {
+  //   this.getMyFilm();
+  // }
+  useEffect(() => {
+    getMyFilm();
+  }, []);
+
+  return (
+    <>
+      <h4 className="text-white ms-4 my-4">New Releases</h4>
+      <Container>
+        <Row className="g-3">
+          {isLoading && (
+            <div className="text-center my-3">
+              <Spinner variant="danger" animation="border" />
+            </div>
+          )}
+          {isError && (
+            <div className="d-flex justify-content-center">
+              <Alert variant="danger" className="my-3 w-50">
+                Mi dispiace ma i tuoi film non sono presenti!
+              </Alert>
+            </div>
+          )}
+          {film.map((films) => (
+            <Col
+              key={films.imdbID}
+              className="col-lg-3 col-md-4 col-sm-6 col-xl-2 col-12"
+            >
+              <Card className="border-0">
+                <Card.Img
+                  style={{ height: 160 }}
+                  variant="top"
+                  src={films.Poster}
+                  alt={films.Title}
+                  className="card-img22"
+                  onClick={() => {
+                    navigate("/MovieDetails/" + films.imdbID);
+                  }}
+                />
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </>
+  );
+};
 export default ThirdRowOfFilms;

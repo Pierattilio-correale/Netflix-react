@@ -1,5 +1,6 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 const MyNavbar = function () {
   return (
@@ -11,35 +12,35 @@ const MyNavbar = function () {
       style={{ backgroundColor: "#221f1f" }}
     >
       <Container fluid>
-        <Navbar.Brand href="#home">
+        <Link className="navbar-brand" to="/">
           <img
-            src="public/logo.png"
+            src="logo.png"
             width="100"
             height="55"
             className="d-inline-block align-top"
             alt="Netflix Logo"
           />
-        </Navbar.Brand>
+        </Link>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" className="active fw-bold">
+            <Link className="nav-link active fw-bold" to="/">
               Home
-            </Nav.Link>
-            <Nav.Link href="#tv-shows" className="fw-bold">
+            </Link>
+            <Link className=" nav-link fw-bold" to="/tv">
               TV Shows
-            </Nav.Link>
-            <Nav.Link href="#movies" className="fw-bold">
-              Movies
-            </Nav.Link>
-            <Nav.Link href="#recently-added" className="fw-bold">
-              Recently Added
-            </Nav.Link>
-            <Nav.Link href="#my-list" className="fw-bold">
-              My List
-            </Nav.Link>
+            </Link>
+            <Link className=" nav-link fw-bold" to="/FirstRowOfFilms/:">
+              Trending Now
+            </Link>
+            <Link className=" nav-link fw-bold" to="/SecondRowOfFilms/:">
+              Watch It Again
+            </Link>
+            <Link className="nav-link fw-bold" to="/ThirdRowOfFilms/:">
+              New Releases
+            </Link>
           </Nav>
           <div className="d-flex align-items-center">
             <i className="bi bi-search icons"></i>
