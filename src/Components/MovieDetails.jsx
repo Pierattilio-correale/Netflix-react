@@ -9,11 +9,7 @@ const MovieDetails = function () {
   console.log(params);
 
   const URLDB = "https://www.omdbapi.com/?apikey=4b12ae0b&i=";
-  // state = {
-  //   film: [],
-  //   isLoading: true,
-  //   isError: false,
-  // };
+
   const [film, setFilm] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -29,32 +25,20 @@ const MovieDetails = function () {
       })
       .then((data) => {
         console.log(data);
-        // this.setState({
-        //   film: data.Search,
 
-        //   isLoading: false,
-        //   isError: false,
-        // });
         setFilm(data);
         setIsLoading(false);
         setIsError(false);
       })
       .catch((err) => {
         console.log("Errore nella fetch", err);
-        // this.setState({
-        //   film: data.Search,
-        //   isLoading: false,
-        //   isError: true,
-        // });
+
         setIsLoading(false);
         setIsError(true);
       });
   };
-  // componentDidMount() {
-  //   this.getMyFilm();
-  // }
+
   useEffect(() => {
-    // verificheremo qui la validità del parametro "pastaId"
     getMyFilm();
   }, [params.movieID]);
   return (
@@ -86,7 +70,7 @@ const MovieDetails = function () {
               key={film.imdbID}
               className="col-lg-3 col-md-4 col-sm-6 col-xl-2 col-12"
             >
-              <Card className="border-0">
+              <Card className="border-0 bg-danger">
                 <Card.Img
                   variant="top"
                   src={film.Poster}

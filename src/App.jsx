@@ -56,9 +56,11 @@ function App() {
                 element={<ThirdRowOfFilms />}
               />
               <Route path="/MovieDetails/:movieID" element={<MovieDetails />} />
-
-              {/* <PaginaProfiloExtra />
-        <NetflixSettings /> */}
+              <Route
+                path="/PaginaProfiloExtra"
+                element={<PaginaProfiloExtra />}
+              />
+              <Route path="/NetflixSettings" element={<NetflixSettings />} />
             </Routes>
           </div>
           <MyFooter />

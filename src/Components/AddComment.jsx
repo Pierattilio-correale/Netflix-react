@@ -3,16 +3,6 @@ import { Form, Button } from "react-bootstrap";
 const URL = "https://striveschool-api.herokuapp.com/api/comments";
 
 const AddComment = function (props) {
-  // state = {
-  //   commenti: "",
-  //   rate: 1,
-  // };
-
-  //metodo con due useState:
-  // const [commenti, setCommenti] = useState("");
-  // const [rate, setRate] = useState(1);
-
-  //metodo con un solo useState:
   const [cr, setCr] = useState({
     commenti: "",
     rate: 1,
@@ -24,7 +14,7 @@ const AddComment = function (props) {
     fetch(URL, {
       method: "POST",
       body: JSON.stringify({
-        comment: cr.commenti, //commenti,
+        comment: cr.commenti,
         rate: cr.rate,
         elementId: props.prop,
       }),
@@ -38,9 +28,6 @@ const AddComment = function (props) {
         if (response.ok) {
           alert("COMMENTO SALVATO!");
 
-          // this.setState({
-          //   commenti: "",
-          // });
           setCr((prev) => ({
             ...prev,
             commenti: "",
@@ -65,9 +52,6 @@ const AddComment = function (props) {
             placeholder="Scrivi un commento..."
             value={cr.commenti}
             onChange={(e) => {
-              // this.setState({
-              //   commenti: e.target.value,
-              // });
               setCr((prev) => ({
                 ...prev,
                 commenti: e.target.value,
@@ -81,9 +65,6 @@ const AddComment = function (props) {
             aria-label="Voto da dare"
             value={cr.rate}
             onChange={(e) => {
-              // this.setState({
-              //   rate: e.target.value,
-              // });
               setCr((prev) => ({
                 ...prev,
                 rate: e.target.value,

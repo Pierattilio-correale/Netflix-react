@@ -36,7 +36,7 @@ const PreHome = function () {
               <Form.Control
                 type="text"
                 className="w-50"
-                placeholder={params.movieID}
+                placeholder={" TV Shows"}
               />
             </div>
           </Col>

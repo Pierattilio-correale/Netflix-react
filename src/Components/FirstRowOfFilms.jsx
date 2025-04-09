@@ -1,15 +1,19 @@
 import { Component, useEffect, useState } from "react";
-import { Container, Row, Col, Card, Spinner, Alert } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Spinner,
+  Alert,
+  Form,
+} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 const URLSwordArt =
   "https://www.omdbapi.com/?apikey=4b12ae0b&s=sword%20art%20online ";
 const FirstRowOfFilms = function () {
   const navigate = useNavigate();
-  // state = {
-  //   film: [],
-  //   isLoading: true,
-  //   isError: false,
-  // };
+
   const [film, setFilm] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -24,34 +28,39 @@ const FirstRowOfFilms = function () {
       })
       .then((data) => {
         console.log(data);
-        // this.setState({
-        //   film: data.Search,
-        //   isLoading: false,
-        //   isError: false,
-        // });
+
         setFilm(data.Search);
         setIsLoading(false);
         setIsError(false);
       })
       .catch((err) => {
         console.log("Errore nella fetch", err);
-        // this.setState({
-        //   isLoading: false,
-        //   isError: true,
-        // });
+
         setIsLoading(false);
         setIsError(true);
       });
   };
-  // componentDidMount() {
-  //   this.getMyFilm();
-  // }
+
   useEffect(() => {
     getMyFilm();
   }, []);
 
   return (
     <>
+      <Container className="my-3">
+        <Row>
+          <Col>
+            <h2 className="text-center text-white">Search here</h2>
+            <div className="d-flex justify-content-center">
+              <Form.Control
+                type="text"
+                className="w-50"
+                placeholder={"Trending Now"}
+              />
+            </div>
+          </Col>
+        </Row>
+      </Container>
       <h4 className="text-white ms-4 my-4">Trending Now</h4>
       <Container>
         <Row className="g-3">

@@ -41,6 +41,12 @@ const MyNavbar = function () {
             <Link className="nav-link fw-bold" to="/ThirdRowOfFilms/:">
               New Releases
             </Link>
+            <Link className="nav-link fw-bold" to="/NetflixSettings">
+              Page Settings
+            </Link>
+            {/* <Link className="nav-link fw-bold" to="/PaginaProfiloExtra">
+              Profile Extra
+            </Link> */}
           </Nav>
           <div className="d-flex align-items-center">
             <i className="bi bi-search icons"></i>
@@ -48,7 +54,10 @@ const MyNavbar = function () {
               KIDS
             </div>
             <i className="bi bi-bell icons"></i>
-            <i className="bi bi-person-circle icons"></i>
+            <Link to="/PaginaProfiloExtra">
+              {" "}
+              <i className="bi bi-person-circle icons"></i>
+            </Link>
           </div>
         </Navbar.Collapse>
       </Container>

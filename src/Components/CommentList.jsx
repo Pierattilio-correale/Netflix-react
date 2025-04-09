@@ -4,9 +4,6 @@ import { ListGroup } from "react-bootstrap";
 const URL = "https://striveschool-api.herokuapp.com/api/comments";
 
 const CommentList = function (props) {
-  // state = {
-  //   recensioni: [],
-  // };
   const [recensioni, setRecensioni] = useState([]);
   const getComments = () => {
     const myId = props.prop;
@@ -24,9 +21,6 @@ const CommentList = function (props) {
         }
       })
       .then((data) => {
-        // this.setState({
-        //   recensioni: data,
-        // });
         setRecensioni(data);
       })
       .catch((err) => {
@@ -55,23 +49,10 @@ const CommentList = function (props) {
       });
   };
 
-  // componentDidMount() {
-  //   this.getComments();
-  // }
   useEffect(() => {
     getComments();
   }, []);
 
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   console.log("Previous prop:", prevProps.prop);
-  //   console.log("Current prop:", this.props.prop);
-
-  //   if (this.props.prop !== prevProps.prop) {
-  //     this.getComments();
-  //   } else {
-  //     console.log("Il prop non è cambiato.");
-  //   }
-  // };
   useEffect(() => {
     getComments();
   }, [props.prop]);
