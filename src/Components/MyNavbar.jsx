@@ -42,7 +42,7 @@ const MyNavbar = function () {
               New Releases
             </Link>
             <Link className="nav-link fw-bold" to="/NetflixSettings">
-              Page Settings
+              Setting Page
             </Link>
             {/* <Link className="nav-link fw-bold" to="/PaginaProfiloExtra">
               Profile Extra
