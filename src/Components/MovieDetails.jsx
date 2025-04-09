@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Col, Container, Row, Spinner, Form } from "react-bootstrap";
+import { Card, Col, Container, Row, Spinner, Alert } from "react-bootstrap";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import CommentArea from "./CommentArea";
 import SearchBar from "./SearchBar";
@@ -51,6 +51,13 @@ const MovieDetails = function () {
             {isLoading && (
               <div className="text-center my-3">
                 <Spinner variant="danger" animation="border" />
+              </div>
+            )}
+            {isError && (
+              <div className="d-flex justify-content-center">
+                <Alert variant="danger" className="my-3 w-50">
+                  Mi dispiace ma il tuo film non è presente!
+                </Alert>
               </div>
             )}
 
